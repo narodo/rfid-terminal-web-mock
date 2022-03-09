@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <title>{% block title %}{% endblock %} - Terminal Demo</title>
+    {% endblock %}
+    <a href=/showterminal>Terminals</a></TD>
+    <a href=/users>Users</a></TD>
+    <a href=/transactions>Transactions</a></TD>
+
+</head>
+<body>
+    <div id="content">{% block content %}{% endblock %}</div>
+</body>
+</html>

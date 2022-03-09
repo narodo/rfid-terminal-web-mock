@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Terminal{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <style>
+      table.tb { width:300px; border-collapse: collapse; }
+      .tb th, .tb td { border: solid 1px #777; padding: 5px;  }
+      .tb th { background: #3630a3; color: white; text-align:left; }
+      .tcell { background: #f6f8ff; }
+    </style>
+
+    <table class="tb">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Amount</th>
+            <th>status</th>
+            <th>OK</th>
+            <th>Offline</th>
+        </tr>
+        {% for term in terminals %}
+        <TR>
+            <TD class="tcell"><a href=/showterminal/{{term.id}}>{{term.id}}</a></TD>
+           <TD class="tcell">{{term.name}}</TD>
+           <TD class="tcell">{{term.location}}</TD>
+           <TD class="tcell">{{term.amount}}</TD>
+           <TD class="tcell">{{term.status}}</TD>
+           <TD class="tcell"> 
+                <form method="post" action="/showterminal">
+                    <input type="submit" value="OK" name="OK{{term.id}}"/>
+                </form>
+           </TD>
+           <TD class="tcell"> 
+                <form method="post" action="/showterminal">
+                    <input type="submit" value="Offline" name="Offline{{term.id}}"/>
+                </form>
+           </TD>
+        </TR>
+        {% endfor %}
+    </table>
+{% endblock %}
+

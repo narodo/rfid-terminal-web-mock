@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Transactions{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <style>
+      table.tb { width:300px; border-collapse: collapse; }
+      .tb th, .tb td { border: solid 1px #777; padding: 5px;  }
+      .tb th { background: #3630a3; color: white; text-align:left; }
+      .tcell { background: #f6f8ff; }
+    </style>
+
+    <table class="tb">
+        <tr>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Tag</th>
+            <th>Terminal</th>
+        </tr>
+        {% for tran in translist %}
+        <TR>
+           <TD class="tcell">{{tran.id}}</TD>
+           <TD class="tcell">{{tran.amount}}</TD>
+           <TD class="tcell">{{tran.tag}}</TD>
+           <TD class="tcell"><a href=/showterminal/{{tran.terminal}}>{{tran.terminal}}</a></TD>
+        </TR>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Terminal{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <title>Terminal {{name }} </title>
+    <h1>Terminal {{ name }} </h1> 
+    <h2> ID: {{id}}</h2>
+    <h2> Location: {{location}}</h2>
+    <h2> status: {{status}}</h2>
+    <h2> configured amount: {{amount }}</h2>
+{% endblock %}
+
